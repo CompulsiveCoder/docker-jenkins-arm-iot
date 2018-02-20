@@ -1,4 +1,4 @@
-FROM reverie/armhf-jenkins
+FROM compulsivecoder/jenkins-arm
 
 USER root
 
@@ -8,4 +8,6 @@ RUN python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platfor
 
 USER ${user}
 
-ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
+ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/local/jenkins.war"]
+EXPOSE 8080
+CMD [""]
